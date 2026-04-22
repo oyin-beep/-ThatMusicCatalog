@@ -1,6 +1,71 @@
-let musicCatalog = JSON.parse(localStorage.getItem("musicCatalog")) || [];
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 let editId = null;
+
+let musicCatalog = [
+    {
+        id: 1,
+        title: "Aaguner",
+        artist: "Shreya Ghoshal",
+        culture: "India",
+        mood: "Spiritual",
+        genre: "Indian Indie",
+        cover: "images/car1.jpeg"
+    },
+    {
+        id: 2,
+        title: "Essence",
+        artist: "Wizkid",
+        culture: "Nigeria",
+        mood: "Chill",
+        genre: "Afro R&B",
+        cover: "images/car2.jpeg"
+    },
+    {
+        id: 3,
+        title: "Kakalika",
+        artist: "DopeNation",
+        culture: "Ghana",
+        mood: "Dance",
+        genre: "Afrobeats",
+        cover: "images/car3.jpeg"
+    },
+    {
+        id: 4,
+        title: "Love Story",
+        artist: "Indila",
+        culture: "France",
+        mood: "Sad",
+        genre: "R&B",
+        cover: "images/car4.jpeg"
+    },
+    {
+        id: 5,
+        title: "Monster",
+        artist: "EXO",
+        culture: "Korea",
+        mood: "Dance",
+        genre: "K-pop",
+        cover: "images/car5.jpeg"
+    },
+    {
+        id: 6,
+        title: "Gira Gira",
+        artist: "Ado",
+        culture: "Japan",
+        mood: "Sad",
+        genre: "J-pop",
+        cover: "images/car6.jpeg"
+    },
+    {
+        id: 7,
+        title: "Tshwala Bam",
+        artist: "TitoM",
+        culture: "South Africa",
+        mood: "Dance",
+        genre: "Amapiano",
+        cover: "images/car7.jpeg"
+    }
+];
 
 const carCovers = [
     "images/car1.jpeg",
