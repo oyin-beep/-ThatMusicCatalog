@@ -2,16 +2,23 @@ let musicCatalog = JSON.parse(localStorage.getItem("musicCatalog")) || [];
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 let editId = null;
 
-async function getCover(mood) {
-    const accessKey = "8uLs2XWJb_oEeqkbqC9-Sk6KCGAGHlWuyHgQYs2jwdY";
+const carCovers = [
+    "images/car1.jpeg",
+    "images/car2.jpeg",
+    "images/car3.jpeg",
+    "images/car4.jpeg",
+    "images/car5.jpeg",
+    "images/car6.jpeg",
+    "images/car7.jpeg",
+    "images/car8.jpeg",
+    "images/car9.jpeg",
+    "images/car10.jpeg",
+    "images/car11.jpeg"
+];
 
-    const response = await fetch(
-        `https://api.unsplash.com/photos/random?query=cars&client_id=${accessKey}`
-    );
-
-    const data = await response.json();
-
-    return data.urls.small;
+function getCover() {
+    const randomIndex = Math.floor(Math.random() * carCovers.length);
+    return carCovers[randomIndex];
 }
 
 const catalog = document.getElementById("catalog");//genre
@@ -21,7 +28,7 @@ function displayMusic(items) {
 
     items.forEach(song => {
         catalog.innerHTML += `
-      <div class="card" style="background-image:url('${song.cover || ""}')">
+      <div class="card" style="background-image:url('${song.cover || "images/car1.jpg"}')">
     <div class="overlay">
       <h3>${song.title}</h3>
       <p>${song.artist}</p>
@@ -101,6 +108,11 @@ function toggleFavorite(id) {
     displayMusic(musicCatalog);
 }
 
+function getCover() {
+    const index = Math.floor(Math.random() * carCovers.length);
+    return carCovers[index];
+}
+
 displayMusic(musicCatalog);
 
 const form = document.getElementById("songForm");
@@ -116,7 +128,6 @@ form.addEventListener("submit", async function(event) {
         id = Date.now();
     }
     const mood = document.getElementById("mood").value;
-    const cover = await getCover(mood);
 
     const updatedSong = {
         
@@ -126,7 +137,7 @@ form.addEventListener("submit", async function(event) {
         culture: document.getElementById("culture").value,
         mood: document.getElementById("mood").value,
         genre: document.getElementById("genre").value,
-        cover: cover
+        cover: getCover()
     };
 
     if (editId) {
