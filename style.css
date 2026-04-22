@@ -1,70 +1,142 @@
-html,
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
 body {
-  margin: 0;
-  padding: 0;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://www.cnet.com/a/img/resize/77334d260e8cb1c3388648d9923e42e8d2e1cbe2/hub/2019/09/07/1d5c65ab-74ea-4aef-9d10-109e8d935582/vinyl-records-lps-by-getty.jpg?auto=webp&fit=crop&height=675&width=1200");
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: -1;
 }
 
-.main-header {
-  background-color: rgba(0, 0, 0, 0.3);
-  padding-bottom: 10px;
+#catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    justify-items: center;
 }
+.card{
+    height: 270px;
+    width: 250px;
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: white; 
+    overflow: hidden;
+    flex-direction: column;
+    margin: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
 
-.title {
-  text-align: center;
-  margin: 0;
-  font-size: 8em;
-  font-family: "Helvetica";
-  font-weight: normal;
-  color: white;
+    aspect-ratio: 1 / 1.2;
 }
-
-#card-container {
-  display: flex;
-  justify-content: center;
-  margin: 20px;
-}
-
 .card {
-  width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 5px;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
 }
 
-.card-content {
-  padding: 20px;
-  font-family: "Verdana";
-  color: #777;
+.card:hover {
+    transform: scale(1.03);
 }
-
-.card-content h2 {
-  margin-top: 0;
-  font-size: 20px;
+.card p {
+    font-size: 20px;
+    font-weight: 400;
+    opacity: 0.85;
+    margin: 2px 0;
 }
-
-.card img {
-  width: 100%;
-  height: auto;
+.card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 5px;
 }
+form {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.15); /* chocolate tint */
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
 
-.footer {
-  display: flex;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.3);
-  padding: 10px;
+    backdrop-filter: blur(6px);
 }
+input {
+    font-size: 18px;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
 
-button {
-  text-align: center;
-  background-color: #666;
-  border: none;
-  padding-left: 10px;
-  padding-right: 10px;
-  height: 40px;
-  border-radius: 10px;
-  color: white;
-  font-size: 22px;
-  cursor: pointer;
-  margin: 5px;
+    background: rgb(247, 247, 247);
+    color: #000000;
+    outline: none;
+}
+button{
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #060200;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+button:hover {    
+    background: #000000;
+}
+.overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+    color: white;
+}
+h1 {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 60px;
+    color: #000000; /* chocolate brown */
+    text-align: center;
+}
+h2 {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 48px;
+    color: #000000d5; /* chocolate brown */
+}
+.heart_btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
